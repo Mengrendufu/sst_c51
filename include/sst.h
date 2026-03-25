@@ -29,7 +29,7 @@
 //============================================================================
 #include "sst_port.h" // SST port for specific chip.
 
-// SST Event facilities ----------------------------------------------------==
+// SST Event facilities ------------------------------------------------------
 // Signal of SST event.
 typedef uint8_t SST_Signal;
 
@@ -41,7 +41,7 @@ typedef struct {
 //! macro for downcasting SST events to specific Evt "subclasses"
 #define SST_EVT_DOWNCAST(EVT_, e_) ((EVT_ const *)(e_))
 
-// SST Task facilities -----------------------------------------------------
+// SST Task facilities -------------------------------------------------------
 typedef struct SST_Task SST_Task; // forward declaration
 
 //! SST Task priority
@@ -95,7 +95,7 @@ SST_LockKey SST_Task_lock(SST_TaskPrio ceiling);
 // unlock the SST task scheduler with the provided lock key
 void SST_Task_unlock(SST_LockKey lock_key);
 
-// SST Time Event facilities -----------------------------------------------
+// SST Time Event facilities -------------------------------------------------
 //! SST internal time-event tick counter
 typedef uint16_t SST_TCtr;
 
@@ -122,12 +122,12 @@ bool SST_TimeEvt_disarm(SST_TimeEvt * const me);
 
 void SST_TimeEvt_tick(void); // static handle all instantiated time events
 
-// SST Kernel facilities ---------------------------------------------------
+// SST Kernel facilities -----------------------------------------------------
 void SST_init(void);
 void SST_start(void);
 void SST_onStart(void);
 
-// general convenience utilities -------------------------------------------
+// general convenience utilities ---------------------------------------------
 #ifndef ARRAY_NELEM
 //! convenience macro to provide the number of elements in the array a_
 #define ARRAY_NELEM(a_)  (sizeof(a_) / sizeof((a_)[0]))

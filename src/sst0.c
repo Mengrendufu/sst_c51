@@ -34,11 +34,11 @@ static SST_ReadySet volatile task_readySet;
 // array of all SST task pointers in the system
 static SST_Task *task_registry[SST_PORT_MAX_TASK + 1U];
 
-//..........................................................................
+//............................................................................
 void SST_init(void) {
 }
 
-//..........................................................................
+//............................................................................
 void SST_Task_run(void) {
     uint_fast8_t p;
     SST_Task *task;
@@ -132,7 +132,7 @@ void SST_Task_start(SST_Task * const me,
     (*me->init)(me, ie);
 }
 
-//..........................................................................
+//............................................................................
 void SST_Task_post(SST_Task * const me,
                    SST_Evt const * const e) SST_REENTRANT
 {
@@ -153,10 +153,10 @@ void SST_Task_post(SST_Task * const me,
     SST_PORT_CRIT_EXIT();
 }
 
-//--------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 static SST_TimeEvt * volatile timeEvt_head = (SST_TimeEvt *)0;
 
-//..........................................................................
+//............................................................................
 void SST_TimeEvt_ctor(SST_TimeEvt * const me,
                       SST_Signal sig,
                       SST_Task *task)
@@ -171,7 +171,7 @@ void SST_TimeEvt_ctor(SST_TimeEvt * const me,
     timeEvt_head = me;
 }
 
-//..........................................................................
+//............................................................................
 void SST_TimeEvt_arm(SST_TimeEvt * const me,
                      SST_TCtr ctr,
                      SST_TCtr interval)
@@ -183,7 +183,7 @@ void SST_TimeEvt_arm(SST_TimeEvt * const me,
     SST_PORT_CRIT_EXIT();
 }
 
-//..........................................................................
+//............................................................................
 bool SST_TimeEvt_disarm(SST_TimeEvt * const me) {
     bool status;
     SST_PORT_CRIT_STAT
@@ -195,7 +195,7 @@ bool SST_TimeEvt_disarm(SST_TimeEvt * const me) {
     return status;
 }
 
-//..........................................................................
+//............................................................................
 void SST_TimeEvt_tick(void) {
     SST_TimeEvt *t;
     for (
